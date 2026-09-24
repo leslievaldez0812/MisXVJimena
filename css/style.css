@@ -400,7 +400,7 @@ body{
     left:50%;
     top:3%;
 
-    width:90%;
+    width:85%;
     height:auto;
 
     transform:translateX(-50%);
@@ -1106,3 +1106,50 @@ body.invitacion-abierta{
 
     margin:0 !important;
 }
+
+/* ==========================================================
+   iPHONE 14 — AJUSTE DE LA FRASE
+========================================================== */
+
+@media screen and (min-width: 389px) and (max-width: 391px) {
+
+    .frase-invitacion {
+        width: 82% !important;
+        max-width: 82% !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        font-size: 20px !important;
+        line-height: 1.45 !important;
+
+        text-align: center !important;
+        left: auto !important;
+        right: auto !important;
+    }
+
+}
+
+/* ==================================================
+   FLORES SUPERIORES — TELÉFONO
+================================================== */
+
+@media screen and (max-width: 768px) {
+
+    .flores-superiores{
+        width: 86% !important;  /* un poco más pequeñas */
+        top: 3% !important;     /* un poco más arriba */
+    }
+
+}
+
+.farol{
+    right: -5% !important;
+    top: 25% !important;
+    z-index: 55 !important;
+}
+
+
+
+
+
