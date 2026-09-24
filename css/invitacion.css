@@ -10694,6 +10694,57 @@ body:not(.cargando-invitacion) .fondo-santorini{
     transition: opacity 1.2s ease;
 }
 
+/* ==========================================================
+   AJUSTES ESPECÍFICOS — iPHONE 14 / 390px
+   No modifica PC ni otros teléfonos
+========================================================== */
+
+@media screen and (min-width: 389px) and (max-width: 391px){
+
+    /* Aquí pondremos únicamente los ajustes necesarios */
+
+}
+
+/* ==========================================================
+   AJUSTE MÓVIL — DRESS CODE
+   iPhone 14 y pantallas móviles similares
+========================================================== */
+@media screen and (max-width: 430px) {
+
+    /* Vestido: un poco más hacia adentro */
+    .vestido{
+        transform: translateX(10px) !important;
+    }
+
+    /* Traje: un poco más hacia adentro */
+    .traje{
+        transform: translateX(-10px) !important;
+    }
+
+}
+
+/* ==========================================================
+   iPHONE 14 — AJUSTE DE LA FRASE
+========================================================== */
+
+@media screen and (min-width: 389px) and (max-width: 391px) {
+
+    .frase-invitacion {
+        width: 82% !important;
+        max-width: 82% !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        font-size: 20px !important;
+        line-height: 1.45 !important;
+
+        text-align: center !important;
+        left: auto !important;
+        right: auto !important;
+    }
+
+}
 
 
 
