@@ -10746,5 +10746,20 @@ body:not(.cargando-invitacion) .fondo-santorini{
 
 }
 
+/* ==========================================================
+   FOCOS — APARECER JUNTO CON LA INVITACIÓN
+========================================================== */
+
+body.cargando-invitacion .focos {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Cuando ya aparece la invitación */
+body:not(.cargando-invitacion) .focos {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
 
 
