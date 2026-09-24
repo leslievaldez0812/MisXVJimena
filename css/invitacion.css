@@ -10693,4 +10693,21 @@ body:not(.cargando-invitacion) .fondo-santorini{
     transition: opacity 1.2s ease;
 }
 
+/* ==========================================================
+   AJUSTE MÓVIL — DRESS CODE
+   iPhone 14 y pantallas móviles similares
+========================================================== */
+@media screen and (max-width: 430px) {
+
+    /* Vestido: un poco más hacia adentro */
+    .vestido{
+        transform: translateX(10px) !important;
+    }
+
+    /* Traje: un poco más hacia adentro */
+    .traje{
+        transform: translateX(-10px) !important;
+    }
+
+}
 
