@@ -10701,12 +10701,12 @@ body:not(.cargando-invitacion) .fondo-santorini{
 
     /* Vestido: un poco más hacia adentro */
     .vestido{
-        transform: translateX(-8px) !important;
+        transform: translateX(-4px) !important;
     }
 
     /* Traje: un poco más hacia adentro */
     .traje{
-        transform: translateX(-8px) !important;
+        transform: translateX(-4px) !important;
     }
 
 }
