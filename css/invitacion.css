@@ -10684,6 +10684,13 @@ body:not(.cargando-invitacion) .pagina-invitacion{
     opacity: 1;
     visibility: visible;
 }
+body.cargando-invitacion .fondo-santorini{
+    opacity: 0;
+}
 
+body:not(.cargando-invitacion) .fondo-santorini{
+    opacity: 1;
+    transition: opacity 1.2s ease;
+}
 
 
