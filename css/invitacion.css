@@ -10710,4 +10710,25 @@ body:not(.cargando-invitacion) .fondo-santorini{
     }
 
 }
+/* ==========================================================
+   iPHONE 14 — AJUSTE DE LA FRASE
+========================================================== */
 
+@media screen and (min-width: 389px) and (max-width: 391px) {
+
+    .frase-invitacion {
+        width: 82% !important;
+        max-width: 82% !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        font-size: 20px !important;
+        line-height: 1.45 !important;
+
+        text-align: center !important;
+        left: auto !important;
+        right: auto !important;
+    }
+
+}
