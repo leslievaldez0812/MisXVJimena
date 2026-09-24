@@ -2,8 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const body =
-        document.body;
+    const body = document.body;
 
 
     /* ======================================
@@ -25,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ======================================
        2. MOSTRAR EL MURO Y LAS FLORES
+       Entrada casi inmediata
     ====================================== */
 
     window.setTimeout(() => {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "pared-visible"
         );
 
-    }, 1800);
+    }, 100);
 
 
     /* ======================================
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "marco-visible"
         );
 
-    }, 2900);
+    }, 250);
 
 
     /* ======================================
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "bola-visible"
         );
 
-    }, 3900);
+    }, 400);
 
 
     /* ======================================
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "invitacion-lista"
         );
 
-    }, 5000);
+    }, 550);
 
 
     /* ======================================
@@ -285,4 +285,3 @@ function iniciarCuentaRegresiva() {
         intervalo;
 
 }
-
