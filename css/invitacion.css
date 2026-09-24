@@ -10666,6 +10666,24 @@ body .regalo-xv .datos-bancarios .nombre-cuenta{
 
 }
 
+/* ==========================================================
+   TRANSICIÓN PUERTA → INVITACIÓN
+   Evita que quede solo el paisaje visible
+========================================================== */
+
+.pagina-invitacion{
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 1.2s ease,
+        visibility 0s linear 0s;
+}
+
+/* Cuando termina la carga / comienza la invitación */
+body:not(.cargando-invitacion) .pagina-invitacion{
+    opacity: 1;
+    visibility: visible;
+}
 
 
 
