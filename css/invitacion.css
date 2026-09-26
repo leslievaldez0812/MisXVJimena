@@ -10761,5 +10761,28 @@ body:not(.cargando-invitacion) .focos {
     visibility: visible !important;
 }
 
+/* ==========================================
+   BOLA DISCO RESPONSIVA
+========================================== */
+
+
+.bola-disco-movil {
+    display: none !important;
+}
+
+
+/* TELÉFONO */
+@media (max-width: 768px) {
+
+    .bola-disco-web {
+        display: none !important;
+    }
+
+    .bola-disco-movil {
+        display: block !important;
+    }
+
+}
+
 
 
