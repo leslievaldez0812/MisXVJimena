@@ -1,197 +1,13 @@
 "use strict";
 
-
 document.addEventListener("DOMContentLoaded", () => {
 
     const body = document.body;
 
 
-    /* =====================================================
-       BOLA DISCO RESPONSIVA
-
-       COMPUTADORA:
-       - Carga y reproduce el video WebM.
-
-       TELÉFONO:
-       - Utiliza solamente la imagen WebP.
-       - No descarga el video WebM.
-    ===================================================== */
-
-    const esMovil =
-        window.matchMedia("(max-width: 768px)").matches;
-
-    const bolaVideo =
-        document.querySelector(".bola-disco-web");
-
-    const bolaImagen =
-        document.querySelector(".bola-disco-movil");
-
-
-    /* =====================================================
-       TELÉFONO
-    ===================================================== */
-
-    if (esMovil) {
-
-        if (bolaVideo) {
-
-            bolaVideo.pause();
-
-            /* Eliminar cualquier src del video */
-            bolaVideo.removeAttribute("src");
-
-
-            /* Eliminar src del <source>, si existe */
-            const sourceVideo =
-                bolaVideo.querySelector("source");
-
-            if (sourceVideo) {
-
-                sourceVideo.removeAttribute("src");
-
-            }
-
-
-            /* Evitar que quede cargado en memoria */
-            bolaVideo.load();
-
-            bolaVideo.style.display = "none";
-
-        }
-
-
-        if (bolaImagen) {
-
-            bolaImagen.style.display = "block";
-
-        }
-
-    }
-
-
-    /* =====================================================
-       COMPUTADORA
-    ===================================================== */
-
-    else {
-
-        if (bolaImagen) {
-
-            bolaImagen.style.display = "none";
-
-        }
-
-
-        if (bolaVideo) {
-
-            bolaVideo.style.display = "block";
-
-
-            /* ---------------------------------------------
-               BUSCAR EL SOURCE DEL VIDEO
-            --------------------------------------------- */
-
-            const sourceVideo =
-                bolaVideo.querySelector("source");
-
-
-            if (sourceVideo) {
-
-                /*
-                   Primero busca data-src.
-
-                   Si el HTML todavía tiene src,
-                   también lo acepta.
-                */
-
-                const rutaVideo =
-                    sourceVideo.dataset.src
-                    || sourceVideo.getAttribute("src");
-
-
-                if (rutaVideo) {
-
-                    sourceVideo.src =
-                        rutaVideo;
-
-                    bolaVideo.load();
-
-                }
-
-            }
-
-            else {
-
-                /*
-                   Por si la ruta estuviera directamente
-                   en el elemento <video>.
-                */
-
-                const rutaVideo =
-                    bolaVideo.dataset.src
-                    || bolaVideo.getAttribute("src");
-
-
-                if (rutaVideo) {
-
-                    bolaVideo.src =
-                        rutaVideo;
-
-                    bolaVideo.load();
-
-                }
-
-            }
-
-
-            /* ---------------------------------------------
-               REPRODUCIR VIDEO
-            --------------------------------------------- */
-
-            const reproducirVideo = () => {
-
-                bolaVideo
-                    .play()
-                    .catch(() => {
-
-                        /*
-                           Algunos navegadores pueden esperar
-                           interacción del usuario.
-
-                           Como el video está muted,
-                           normalmente autoplay funcionará.
-                        */
-
-                    });
-
-            };
-
-
-            reproducirVideo();
-
-
-            /*
-               Si el navegador no permitió autoplay,
-               intentar nuevamente con el primer clic/toque.
-            */
-
-            document.addEventListener(
-                "pointerdown",
-                reproducirVideo,
-                {
-                    once: true
-                }
-            );
-
-        }
-
-    }
-
-
-
-    /* =====================================================
+    /* ======================================
        1. MOSTRAR LA INVITACIÓN
-    ===================================================== */
+    ====================================== */
 
     requestAnimationFrame(() => {
 
@@ -206,11 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-
-    /* =====================================================
+    /* ======================================
        2. MOSTRAR EL MURO Y LAS FLORES
        Entrada casi inmediata
-    ===================================================== */
+    ====================================== */
 
     window.setTimeout(() => {
 
@@ -221,10 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 100);
 
 
-
-    /* =====================================================
+    /* ======================================
        3. MOSTRAR EL MARCO
-    ===================================================== */
+    ====================================== */
 
     window.setTimeout(() => {
 
@@ -235,11 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 250);
 
 
-
-    /* =====================================================
+    /* ======================================
        4. MOSTRAR LA BOLA DISCO
        Y LA PORTADA
-    ===================================================== */
+    ====================================== */
 
     window.setTimeout(() => {
 
@@ -250,10 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 400);
 
 
-
-    /* =====================================================
+    /* ======================================
        5. FINALIZAR ESTADO DE CARGA
-    ===================================================== */
+    ====================================== */
 
     window.setTimeout(() => {
 
@@ -268,10 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 550);
 
 
-
-    /* =====================================================
+    /* ======================================
        6. INICIAR CUENTA REGRESIVA
-    ===================================================== */
+    ====================================== */
 
     iniciarCuentaRegresiva();
 
@@ -279,9 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-/* =========================================================
+/* ==========================================
    CUENTA REGRESIVA
-========================================================= */
+========================================== */
 
 function iniciarCuentaRegresiva() {
 
@@ -310,14 +121,11 @@ function iniciarCuentaRegresiva() {
         );
 
         return;
-
     }
-
 
 
     /*
        Fecha del evento:
-
        24 de octubre de 2026
        7:00 p. m.
        Zona horaria de Guatemala
@@ -329,26 +137,17 @@ function iniciarCuentaRegresiva() {
         );
 
 
-
-    /* =====================================================
-       ACTUALIZAR CONTADOR
-    ===================================================== */
-
     function actualizarContador() {
 
         const ahora =
             new Date();
-
 
         const diferencia =
             fechaEvento.getTime()
             - ahora.getTime();
 
 
-
-        /* =================================================
-           SI EL EVENTO YA COMENZÓ
-        ================================================= */
+        /* Si el evento ya comenzó */
 
         if (diferencia <= 0) {
 
@@ -365,14 +164,8 @@ function iniciarCuentaRegresiva() {
                 "00";
 
             return;
-
         }
 
-
-
-        /* =================================================
-           CONVERTIR DIFERENCIA A SEGUNDOS
-        ================================================= */
 
         const totalSegundos =
             Math.floor(
@@ -380,21 +173,11 @@ function iniciarCuentaRegresiva() {
             );
 
 
-
-        /* =================================================
-           DÍAS
-        ================================================= */
-
         const cantidadDias =
             Math.floor(
                 totalSegundos / 86400
             );
 
-
-
-        /* =================================================
-           HORAS
-        ================================================= */
 
         const cantidadHoras =
             Math.floor(
@@ -405,11 +188,6 @@ function iniciarCuentaRegresiva() {
             );
 
 
-
-        /* =================================================
-           MINUTOS
-        ================================================= */
-
         const cantidadMinutos =
             Math.floor(
                 (
@@ -419,19 +197,9 @@ function iniciarCuentaRegresiva() {
             );
 
 
-
-        /* =================================================
-           SEGUNDOS
-        ================================================= */
-
         const cantidadSegundos =
             totalSegundos % 60;
 
-
-
-        /* =================================================
-           MOSTRAR DÍAS
-        ================================================= */
 
         dias.textContent =
             String(
@@ -442,11 +210,6 @@ function iniciarCuentaRegresiva() {
             );
 
 
-
-        /* =================================================
-           MOSTRAR HORAS
-        ================================================= */
-
         horas.textContent =
             String(
                 cantidadHoras
@@ -456,11 +219,6 @@ function iniciarCuentaRegresiva() {
             );
 
 
-
-        /* =================================================
-           MOSTRAR MINUTOS
-        ================================================= */
-
         minutos.textContent =
             String(
                 cantidadMinutos
@@ -469,11 +227,6 @@ function iniciarCuentaRegresiva() {
                 "0"
             );
 
-
-
-        /* =================================================
-           MOSTRAR SEGUNDOS
-        ================================================= */
 
         segundos.textContent =
             String(
@@ -486,18 +239,12 @@ function iniciarCuentaRegresiva() {
     }
 
 
-
-    /* =====================================================
-       EJECUTAR INMEDIATAMENTE
-    ===================================================== */
+    /* Ejecutar inmediatamente */
 
     actualizarContador();
 
 
-
-    /* =====================================================
-       ACTUALIZAR CADA SEGUNDO
-    ===================================================== */
+    /* Actualizar cada segundo */
 
     const intervalo =
         window.setInterval(
@@ -506,11 +253,11 @@ function iniciarCuentaRegresiva() {
         );
 
 
-
-    /* =====================================================
-       CUANDO SE REGRESA A LA PESTAÑA,
-       ACTUALIZAR INMEDIATAMENTE EL CONTADOR
-    ===================================================== */
+    /*
+       Si la página deja de estar visible,
+       evitamos cálculos innecesarios.
+       Al volver, el contador se actualiza.
+    */
 
     document.addEventListener(
         "visibilitychange",
@@ -529,10 +276,10 @@ function iniciarCuentaRegresiva() {
     );
 
 
-
-    /* =====================================================
-       GUARDAR EL INTERVALO
-    ===================================================== */
+    /*
+       Guardamos el identificador por si más
+       adelante necesitas detener el contador.
+    */
 
     window.intervaloCuentaRegresiva =
         intervalo;
