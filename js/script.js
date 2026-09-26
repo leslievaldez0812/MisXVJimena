@@ -81,8 +81,14 @@ document.addEventListener("DOMContentLoaded", () => {
         iframe.className =
             "iframe-invitacion";
 
-        iframe.src =
-        "invitacion.html?v=" + Date.now();
+
+        /* ======================================
+           INVITACIÓN
+           Sin Date.now() para permitir caché
+        ====================================== */
+
+        iframe.src = "invitacion.html";
+
 
         iframe.title =
             "Invitación de XV años de Jimena";
@@ -105,6 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
+        /* ======================================
+           MOSTRAR CUANDO EL IFRAME ESTÉ LISTO
+        ====================================== */
+
         iframe.addEventListener(
             "load",
             () => {
@@ -122,12 +132,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
             },
-            { once:true }
+            { once: true }
         );
 
 
+        /* ======================================
+           ACTUALIZAR URL
+        ====================================== */
+
         window.history.pushState(
-            { invitacion:true },
+            { invitacion: true },
             "",
             "#invitacion"
         );
@@ -147,11 +161,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         iniciada = true;
 
+
+        /* Iniciar música después del toque */
+
         reproducirMusica();
+
+
+        /* Activar transición */
 
         document.body.classList.add(
             "transicion-activa"
         );
+
+
+        /* Abrir puerta */
 
         intro.classList.add(
             "abriendo"
@@ -162,7 +185,9 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-        /* Ligero avance hacia la puerta */
+        /* ======================================
+           LIGERO AVANCE HACIA LA PUERTA
+        ====================================== */
 
         window.setTimeout(() => {
 
@@ -173,7 +198,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 900);
 
 
-        /* Mostrar la invitación sobre el index */
+        /* ======================================
+           MOSTRAR INVITACIÓN
+        ====================================== */
 
         window.setTimeout(() => {
 
@@ -193,10 +220,12 @@ document.addEventListener("DOMContentLoaded", () => {
         entrarPorLaPuerta
     );
 
+
     escena.addEventListener(
         "click",
         entrarPorLaPuerta
     );
+
 
     boton.addEventListener(
         "keydown",
@@ -234,6 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
+
             contenedor.classList.remove(
                 "visible"
             );
@@ -241,6 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.classList.remove(
                 "invitacion-abierta"
             );
+
 
             window.setTimeout(() => {
 
