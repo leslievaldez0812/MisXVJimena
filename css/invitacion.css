@@ -11064,3 +11064,47 @@ body:not(.cargando-invitacion) .focos {
 
 
 
+
+/* =========================================================
+   DESTELLOS — SOLO MÓVIL
+   Todos dentro o sobre el borde de la bola
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Superior izquierdo */
+    .bola-disco-contenedor .destello-1 {
+        top: 38% !important;
+        left: 31% !important;
+    }
+
+    /* Superior derecho */
+    .bola-disco-contenedor .destello-2 {
+        top: 39% !important;
+        left: 69% !important;
+    }
+
+    /* Lateral izquierdo */
+    .bola-disco-contenedor .destello-3 {
+        top: 51% !important;
+        left: 27% !important;
+    }
+
+    /* Lateral derecho */
+    .bola-disco-contenedor .destello-4 {
+        top: 52% !important;
+        left: 73% !important;
+    }
+
+    /* Inferior izquierdo */
+    .bola-disco-contenedor .destello-5 {
+        top: 65% !important;
+        left: 35% !important;
+    }
+
+    /* Inferior derecho */
+    .bola-disco-contenedor .destello-6 {
+        top: 66% !important;
+        left: 65% !important;
+    }
+}
