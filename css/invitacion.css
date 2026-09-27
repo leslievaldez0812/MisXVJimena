@@ -10970,7 +10970,97 @@ body:not(.cargando-invitacion) .focos {
     }
 }
 
+/* =========================================================
+   DESTELLOS ALREDEDOR DE LA BOLA DISCO
+   SOLO MÓVIL
+========================================================= */
 
+@media (max-width: 768px) {
+
+    /* La bola queda completamente estática */
+    .bola-disco-movil {
+        animation: none !important;
+    }
+
+
+    /* Base de todos los destellos */
+    .bola-disco-contenedor .destello {
+        position: absolute !important;
+
+        width: 8px !important;
+        height: 8px !important;
+
+        z-index: 30 !important;
+
+        pointer-events: none;
+
+        animation: destelloBolaMovil 2.4s ease-in-out infinite;
+    }
+
+
+    /* ARRIBA IZQUIERDA */
+    .bola-disco-contenedor .destello-1 {
+        top: 25% !important;
+        left: 30% !important;
+        animation-delay: 0s;
+    }
+
+
+    /* ARRIBA DERECHA */
+    .bola-disco-contenedor .destello-2 {
+        top: 28% !important;
+        left: 68% !important;
+        animation-delay: .5s;
+    }
+
+
+    /* CENTRO IZQUIERDA */
+    .bola-disco-contenedor .destello-3 {
+        top: 48% !important;
+        left: 24% !important;
+        animation-delay: 1s;
+    }
+
+
+    /* CENTRO DERECHA */
+    .bola-disco-contenedor .destello-4 {
+        top: 50% !important;
+        left: 75% !important;
+        animation-delay: 1.4s;
+    }
+
+
+    /* ABAJO IZQUIERDA */
+    .bola-disco-contenedor .destello-5 {
+        top: 70% !important;
+        left: 32% !important;
+        animation-delay: .8s;
+    }
+
+
+    /* ABAJO DERECHA */
+    .bola-disco-contenedor .destello-6 {
+        top: 68% !important;
+        left: 67% !important;
+        animation-delay: 1.8s;
+    }
+
+
+    /* Pulsación del destello */
+    @keyframes destelloBolaMovil {
+
+        0%,
+        100% {
+            opacity: 0.15;
+            scale: 0.55;
+        }
+
+        50% {
+            opacity: 1;
+            scale: 1.35;
+        }
+    }
+}
 
 
 
