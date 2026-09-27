@@ -10784,5 +10784,193 @@ body:not(.cargando-invitacion) .focos {
 
 }
 
+/* =========================================================
+   BOLA DISCO
+   PC    → VIDEO WEBM
+   MÓVIL → IMAGEN WEBP + ANIMACIÓN CSS
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   COMPUTADORA
+   --------------------------------------------------------- */
+
+/* El video se muestra normalmente */
+.bola-disco-video {
+    display: block;
+}
+
+/* La imagen móvil permanece oculta */
+.bola-disco-movil {
+    display: none;
+}
+
+
+/* =========================================================
+   TELÉFONOS
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------
+       OCULTAR COMPLETAMENTE EL VIDEO
+       ----------------------------------------- */
+
+    .bola-disco-video {
+        display: none !important;
+    }
+
+
+    /* -----------------------------------------
+       MOSTRAR IMAGEN ESTÁTICA
+       ----------------------------------------- */
+
+    .bola-disco-movil {
+        display: block !important;
+
+        width: 165px;
+        height: auto;
+
+        margin: 0 auto;
+
+        position: relative;
+        z-index: 10;
+
+        transform-origin: 50% 5%;
+
+        /* Movimiento ligero */
+        animation:
+            balanceoBola 5s ease-in-out infinite,
+            brilloBola 3.5s ease-in-out infinite;
+
+        /* Ayuda al navegador a optimizar la animación */
+        will-change: transform, filter;
+    }
+
+
+    /* -----------------------------------------
+       MOVIMIENTO TIPO BOLA COLGANTE
+       ----------------------------------------- */
+
+    @keyframes balanceoBola {
+
+        0% {
+            transform: rotate(-3deg) translateY(0);
+        }
+
+        25% {
+            transform: rotate(0deg) translateY(2px);
+        }
+
+        50% {
+            transform: rotate(3deg) translateY(0);
+        }
+
+        75% {
+            transform: rotate(0deg) translateY(2px);
+        }
+
+        100% {
+            transform: rotate(-3deg) translateY(0);
+        }
+    }
+
+
+    /* -----------------------------------------
+       CAMBIO MUY SUAVE DE BRILLO
+       ----------------------------------------- */
+
+    @keyframes brilloBola {
+
+        0%,
+        100% {
+            filter:
+                brightness(1)
+                drop-shadow(0 4px 5px rgba(0, 0, 0, 0.12));
+        }
+
+        50% {
+            filter:
+                brightness(1.12)
+                drop-shadow(0 5px 8px rgba(255, 255, 255, 0.28));
+        }
+    }
+}
+
+
+/* =========================================================
+   TELÉFONOS PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .bola-disco-movil {
+        width: 145px;
+    }
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD / AHORRO DE MOVIMIENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .bola-disco-movil {
+        animation: none !important;
+    }
+}
+
+/* =====================================================
+   BOLA DISCO — SOLO MÓVIL
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+    .bola-disco-movil {
+        display: block !important;
+
+        width: 165px !important;
+        height: auto !important;
+
+        position: absolute !important;
+
+        /* CENTRADO */
+        left: 61% !important;
+        right: auto !important;
+
+        /* POSICIÓN VERTICAL */
+        top: -40px !important;
+
+        margin: 0 !important;
+
+        /* IMPORTANTE: mantiene el centro */
+        transform: translateX(-50%) rotate(-2deg);
+
+        transform-origin: 50% 10%;
+
+        z-index: 20 !important;
+
+        animation: bolaMovilBalanceo 5s ease-in-out infinite;
+    }
+
+    @keyframes bolaMovilBalanceo {
+
+        0% {
+            transform: translateX(-50%) rotate(-2deg);
+        }
+
+        50% {
+            transform: translateX(-50%) rotate(2deg);
+        }
+
+        100% {
+            transform: translateX(-50%) rotate(-2deg);
+        }
+    }
+}
+
+
+
 
 
