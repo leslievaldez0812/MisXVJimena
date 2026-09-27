@@ -11108,3 +11108,318 @@ body:not(.cargando-invitacion) .focos {
         left: 65% !important;
     }
 }
+
+/* =========================================================
+   AJUSTE FINAL — iPHONE 14
+   viewport: 390 x 844
+   SOLO PORTADA
+========================================================= */
+
+@media screen
+and (width: 390px)
+and (min-height: 800px)
+and (max-height: 900px) {
+
+    /* =========================================
+       ESCENA
+    ========================================= */
+
+    :root {
+        --ancho-escena: 100vw;
+        --separacion-superior: 0px;
+    }
+
+    .pagina-invitacion {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .escena-invitacion {
+        width: 100vw !important;
+    }
+
+
+    /* =========================================
+       MARCO / PARED
+    ========================================= */
+
+    .pared-invitacion {
+        width: 100vw !important;
+        left: 50% !important;
+        top: 0 !important;
+    }
+
+    .marco-invitacion {
+        width: 100vw !important;
+        left: 50% !important;
+        top: 0 !important;
+    }
+
+
+    /* =========================================
+       BOLA DISCO
+       IMPORTANTE: CENTRADA
+    ========================================= */
+
+    .bola-disco-contenedor {
+        left: 50% !important;
+        top: 42px !important;
+
+        transform: translateX(-50%) !important;
+
+        width: 145px !important;
+    }
+
+    body.bola-visible .bola-disco-contenedor {
+        transform: translateX(-50%) !important;
+    }
+
+
+    /* Imagen móvil */
+
+    .bola-disco-movil {
+        width: 145px !important;
+
+        left: 50% !important;
+        right: auto !important;
+
+        top: -40px !important;
+
+        transform: translateX(-50%) !important;
+    }
+
+
+    /* =========================================
+       CADENA
+    ========================================= */
+
+    .cadena-disco {
+        height: 72px !important;
+        flex: 0 0 72px !important;
+    }
+
+
+    /* =========================================
+       FRASE
+    ========================================= */
+
+    .frase-portada {
+        width: 88% !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+
+        font-size: 16px !important;
+        line-height: 1.55 !important;
+
+        text-align: center !important;
+    }
+
+
+    /* =========================================
+       MAMMA MIA
+    ========================================= */
+
+    .mamma-mia-portada {
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .mamma-mia-portada img {
+        width: 215px !important;
+        max-width: 72vw !important;
+    }
+
+
+    /* =========================================
+       MIS XV
+    ========================================= */
+
+    .subtitulo-xv {
+        font-size: 27px !important;
+    }
+
+
+    /* =========================================
+       ORNAMENTO DEBAJO DE MIS XV
+    ========================================= */
+
+    .ornamento-misxv {
+        width: 48% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+
+    /* =========================================
+       JIMENA
+    ========================================= */
+
+    .nombre-jimena-contenedor {
+        width: 82% !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+
+    /* =========================================
+       FECHA
+    ========================================= */
+
+    .fecha-evento {
+        width: 100% !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .fecha-contenedor {
+        justify-content: center !important;
+        gap: 12px !important;
+    }
+
+
+    /* =========================================
+       DESTELLOS
+       Conservamos su animación actual
+    ========================================= */
+
+    .bola-disco-contenedor .destello-1 {
+        top: 40% !important;
+        left: 24% !important;
+    }
+
+    .bola-disco-contenedor .destello-2 {
+        top: 42% !important;
+        left: 76% !important;
+    }
+
+    .bola-disco-contenedor .destello-3 {
+        top: 54% !important;
+        left: 18% !important;
+    }
+
+    .bola-disco-contenedor .destello-4 {
+        top: 55% !important;
+        left: 82% !important;
+    }
+
+    .bola-disco-contenedor .destello-5 {
+        top: 69% !important;
+        left: 30% !important;
+    }
+
+    .bola-disco-contenedor .destello-6 {
+        top: 70% !important;
+        left: 70% !important;
+    }
+}
+
+/* =====================================================
+   FRASE PORTADA — iPHONE 14
+   390px
+===================================================== */
+
+@media screen and (min-width: 389px) and (max-width: 391px) {
+
+    body .pagina-invitacion .frase-portada {
+        width: 92% !important;
+        max-width: 340px !important;
+
+        left: 45% !important;
+        right: auto !important;
+
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        transform: translateX(-50%) !important;
+
+        font-size: 20px !important;
+        line-height: 1.50 !important;
+
+        text-align: center !important;
+    }
+
+}
+
+/* =====================================================
+   iPHONE 14 — BAJAR TODO EL CONTENIDO DE LA PORTADA
+===================================================== */
+
+@media screen and (min-width: 389px) and (max-width: 391px) {
+
+    .portada-invitacion {
+        padding-top: 165px !important;
+    }
+
+}
+
+/* ==========================================================
+   iPHONE 14 — BAJAR HORA DE MISA / RECEPCIÓN
+   Y EMPUJAR TODO LO QUE VIENE DEBAJO
+========================================================== */
+
+@media screen and (min-width: 389px) and (max-width: 391px) {
+
+    .eventos-xv .evento-hora {
+        position: relative !important;
+
+        /* Quitamos el desplazamiento visual anterior */
+        top: 0 !important;
+
+        /* Baja la hora y EMPUJA lo que sigue */
+        margin-top: 80px !important;
+    }
+
+}
+
+/* ==========================================================
+   iPHONE 14 — AJUSTES DRESS CODE
+   Bola + título + Formal/Gala + vestido + traje
+========================================================== */
+
+    /* =========================================
+       VESTIDO
+       Reducir ligeramente
+    ========================================= */
+
+    .dress-hombre {
+        width: 32% !important;
+    }
+
+
+    /* =========================================
+       TRAJE
+       Reducir ligeramente
+    ========================================= */
+
+    .dress-mujer {
+        width: 32% !important;
+    }
+
+    /* SUBIR VESTIDO + TRAJE */
+    body .pagina-invitacion .dress-contenido {
+        margin-top: -20px !important;
+        transform: translateY(-20px) !important;
+}
+
+/* ==========================================================
+   iPHONE 14 — ACERCAR VESTIDO Y TRAJE HACIA EL CENTRO
+========================================================== */
+
+@media screen and (min-width: 389px) and (max-width: 391px) {
+
+    /* VESTIDO — hacia adentro / derecha */
+    body .pagina-invitacion .dress-hombre {
+        left: -5% !important;
+    }
+
+    /* TRAJE — hacia adentro / izquierda */
+    body .pagina-invitacion .dress-mujer {
+        right: -10% !important;
+        left: auto !important;
+    }
+}
