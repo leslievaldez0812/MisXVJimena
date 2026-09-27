@@ -1149,6 +1149,26 @@ body.invitacion-abierta{
     z-index: 55 !important;
 }
 
+/* ==========================================================
+   iPHONE 14 — AGRANDAR FRAME
+   "TOCA LA PUERTA PARA ENTRAR"
+========================================================== */
+
+@media screen and (min-width: 389px) and (max-width: 391px) {
+
+    .boton-entrar .marco-boton {
+        width: 112% !important;
+        max-width: none !important;
+
+        position: relative !important;
+        left: 50% !important;
+
+        transform: translateX(-50%) !important;
+
+        height: auto !important;
+    }
+
+}
 
 
 
