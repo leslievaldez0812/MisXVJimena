@@ -11374,13 +11374,6 @@ and (max-height: 900px) {
         margin-top: 80px !important;
     }
 
-}
-
-/* ==========================================================
-   iPHONE 14 — AJUSTES DRESS CODE
-   Bola + título + Formal/Gala + vestido + traje
-========================================================== */
-
     /* =========================================
        VESTIDO
        Reducir ligeramente
@@ -11389,7 +11382,6 @@ and (max-height: 900px) {
     .dress-hombre {
         width: 32% !important;
     }
-
 
     /* =========================================
        TRAJE
@@ -11400,11 +11392,24 @@ and (max-height: 900px) {
         width: 32% !important;
     }
 
-    /* SUBIR VESTIDO + TRAJE */
+     /* SUBIR VESTIDO + TRAJE */
     body .pagina-invitacion .dress-contenido {
         margin-top: -20px !important;
         transform: translateY(-20px) !important;
+    }
+
 }
+
+/* ==========================================================
+   iPHONE 14 — AJUSTES DRESS CODE
+   Bola + título + Formal/Gala + vestido + traje
+========================================================== */
+
+    
+
+    
+
+   
 
 /* ==========================================================
    iPHONE 14 — ACERCAR VESTIDO Y TRAJE HACIA EL CENTRO

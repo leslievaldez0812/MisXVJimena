@@ -21,9 +21,7 @@ html{
 body{
     min-height:100vh;
     min-height:100dvh;
-
     overflow:hidden;
-
     background:#f4e8dc;
 
     font-family:
@@ -40,14 +38,11 @@ body{
 ================================================== */
 
 :root{
-    /* Colores */
 
     --color-crema:#f4e8dc;
     --color-azul:#0d5b96;
     --color-rosa:#e85b98;
     --color-petalo:#f76ba9;
-
-    /* Capas */
 
     --z-fondo:0;
     --z-iluminacion:1;
@@ -63,17 +58,16 @@ body{
     --z-petalos:80;
     --z-boton:100;
 
-    /* Duraciones */
-
     --duracion-puertas:2s;
     --duracion-paisaje:1s;
     --duracion-desvanecer:.85s;
     --duracion-zoom:1.8s;
 
-    /* Curvas de animación */
+    --curva-suave:
+        cubic-bezier(.22,.61,.36,1);
 
-    --curva-suave:cubic-bezier(.22,.61,.36,1);
-    --curva-cinematica:cubic-bezier(.16,.84,.28,1);
+    --curva-cinematica:
+        cubic-bezier(.16,.84,.28,1);
 }
 
 
@@ -99,6 +93,7 @@ body{
     isolation:isolate;
 }
 
+
 /* ==================================================
    CÁMARA DE LA PORTADA
 ================================================== */
@@ -106,6 +101,7 @@ body{
 .camara{
     position:absolute;
     inset:0;
+
     z-index:10;
 
     width:100%;
@@ -116,7 +112,7 @@ body{
     transform-origin:center center;
 
     transform:
-        translate3d(0, 0, 0)
+        translate3d(0,0,0)
         scale(1);
 
     will-change:
@@ -124,9 +120,12 @@ body{
         opacity;
 
     transition:
-        transform 3.2s cubic-bezier(.18,.78,.22,1),
+        transform 3.2s
+        cubic-bezier(.18,.78,.22,1),
+
         opacity .8s ease;
 }
+
 
 /* ==================================================
    4. FONDO DE LA PORTADA
@@ -149,7 +148,7 @@ body{
 }
 
 
-/* Iluminación suave sobre el fondo */
+/* Iluminación */
 
 .intro::before{
     content:"";
@@ -174,12 +173,6 @@ body{
    5. PAISAJE DE SANTORINI
 ================================================== */
 
-/* ==================================================
-   PAISAJE A PANTALLA COMPLETA
-================================================== */
-
-/* Paisaje que se mostrará al terminar */
-
 .vista-previa-invitacion{
     position:fixed;
     inset:0;
@@ -193,7 +186,9 @@ body{
     background:var(--color-crema);
 
     opacity:0;
-    transform:scale(1.12);
+
+    transform:
+        scale(1.12);
 
     z-index:7;
 
@@ -205,8 +200,10 @@ body{
 
     transition:
         opacity 1s ease,
-        transform 2.5s cubic-bezier(.16,.84,.28,1);
+        transform 2.5s
+        cubic-bezier(.16,.84,.28,1);
 }
+
 
 .vista-previa-invitacion img{
     display:block;
@@ -216,6 +213,8 @@ body{
 
     object-fit:cover;
     object-position:center 65%;
+
+    transform:scale(1);
 
     user-select:none;
     pointer-events:none;
@@ -232,29 +231,44 @@ body{
     left:50%;
     top:50%;
 
-    width:min(64dvh, 620px, 96vw);
+    width:
+        min(
+            64dvh,
+            620px,
+            96vw
+        );
+
     height:auto;
 
     aspect-ratio:2 / 3;
 
     perspective:2200px;
-    transform-style:preserve-3d;
+
+    transform-style:
+        preserve-3d;
 
     transform:
-        translate(-50%, -52%)
+        translate(-50%,-52%)
         scale(1.03);
 
     cursor:pointer;
 
-    z-index:var(--z-escena);
+    z-index:
+        var(--z-escena);
 
     transition:
-        opacity var(--duracion-desvanecer) ease,
-        transform var(--duracion-desvanecer) ease;
+        opacity
+        var(--duracion-desvanecer)
+        ease,
+
+        transform
+        var(--duracion-desvanecer)
+        ease;
 }
 
+
 /* ==================================================
-   7. CAPAS QUE OCUPAN TODA LA ESCENA
+   7. CAPAS COMPLETAS
 ================================================== */
 
 .capa-completa{
@@ -271,23 +285,41 @@ body{
     user-select:none;
 }
 
+
 /* ==================================================
-   INTERIOR DETRÁS DE LAS PUERTAS
+   8. INTERIOR DETRÁS DE LAS PUERTAS
 ================================================== */
 
 .interior{
     position:absolute;
+
     left:29.2%;
     top:17.8%;
+
     width:41.6%;
     height:53.6%;
+
     overflow:hidden;
+
     background:transparent;
+
     opacity:1;
+
     z-index:4;
+
     pointer-events:none;
-    clip-path: inset(0 round 160px 160px 0 0);
+
+    clip-path:
+        inset(
+            0
+            round
+            160px
+            160px
+            0
+            0
+        );
 }
+
 
 .paisaje-puerta{
     display:block;
@@ -298,94 +330,117 @@ body{
     object-fit:cover;
     object-position:center 65%;
 
-    transform:scale(1.08);
+    transform:
+        scale(1.08);
 
     user-select:none;
     pointer-events:none;
 
     transition:
-        transform 3.2s cubic-bezier(.18,.78,.22,1);
+        transform 3.2s
+        cubic-bezier(.18,.78,.22,1);
 }
+
 
 /* ==================================================
    9. PUERTAS
 ================================================== */
 
 .puerta{
-    z-index:var(--z-puertas);
+    z-index:
+        var(--z-puertas);
 
-    transform-style:preserve-3d;
+    transform-style:
+        preserve-3d;
 
-    backface-visibility:visible;
-    -webkit-backface-visibility:visible;
+    backface-visibility:
+        visible;
 
-    will-change:transform;
+    -webkit-backface-visibility:
+        visible;
+
+    will-change:
+        transform;
 
     filter:
         drop-shadow(
-            0 4px 8px rgba(0,0,0,.12)
+            0 4px 8px
+            rgba(0,0,0,.12)
         );
 
     transition:
-        transform var(--duracion-puertas) var(--curva-suave),
+        transform
+        var(--duracion-puertas)
+        var(--curva-suave),
+
         filter .6s ease,
-        opacity var(--duracion-desvanecer) ease;
+
+        opacity
+        var(--duracion-desvanecer)
+        ease;
 }
 
-
-/* Puerta izquierda */
 
 .puerta-izquierda{
-    transform-origin:27.6% center;
-    transform:rotateY(0deg);
+    transform-origin:
+        27.6% center;
+
+    transform:
+        rotateY(0deg);
 }
 
-
-/* Puerta derecha */
 
 .puerta-derecha{
-    transform-origin:73.4% center;
-    transform:rotateY(0deg);
+    transform-origin:
+        73.4% center;
+
+    transform:
+        rotateY(0deg);
 }
 
 
-/* Estado de apertura */
-
-.escena.abierta .puerta-izquierda{
-    transform:rotateY(-65deg);
+.escena.abierta
+.puerta-izquierda{
+    transform:
+        rotateY(-65deg);
 }
 
-.escena.abierta .puerta-derecha{
-    transform:rotateY(60deg);
+
+.escena.abierta
+.puerta-derecha{
+    transform:
+        rotateY(60deg);
 }
 
-.escena.abierta .puerta{
+
+.escena.abierta
+.puerta{
     filter:
         drop-shadow(
-            0 8px 14px rgba(0,0,0,.20)
+            0 8px 14px
+            rgba(0,0,0,.20)
         );
 }
 
-.petalos{
-    transition:opacity .8s ease;
-}
 
 /* ==================================================
    10. MARCO
 ================================================== */
 
 .marco-grada{
-
-    z-index:var(--z-marco);
+    z-index:
+        var(--z-marco);
 
     filter:
         drop-shadow(
-            0 7px 10px rgba(77,48,29,.13)
+            0 7px 10px
+            rgba(77,48,29,.13)
         );
 
     transition:
-        opacity var(--duracion-desvanecer) ease;
-
+        opacity
+        var(--duracion-desvanecer)
+        ease;
 }
 
 
@@ -394,7 +449,6 @@ body{
 ================================================== */
 
 .flores-superiores{
-
     position:absolute;
 
     left:50%;
@@ -403,29 +457,35 @@ body{
     width:85%;
     height:auto;
 
-    transform:translateX(-50%);
+    transform:
+        translateX(-50%);
 
     object-fit:contain;
 
     pointer-events:none;
     user-select:none;
 
-    z-index:var(--z-flores);
+    z-index:
+        var(--z-flores);
 
     filter:
         drop-shadow(
-            0 6px 8px rgba(85,35,45,.16)
+            0 6px 8px
+            rgba(85,35,45,.16)
         );
 
     transition:
-        opacity var(--duracion-desvanecer) ease;
-
-
+        opacity
+        var(--duracion-desvanecer)
+        ease;
 }
 
 
-.florero{
+/* ==================================================
+   12. FLOREROS
+================================================== */
 
+.florero{
     position:absolute;
 
     width:26%;
@@ -438,68 +498,58 @@ body{
     pointer-events:none;
     user-select:none;
 
-    z-index:var(--z-floreros);
+    z-index:
+        var(--z-floreros);
 
     filter:
         drop-shadow(
-            0 7px 10px rgba(0,0,0,.16)
+            0 7px 10px
+            rgba(0,0,0,.16)
         );
 
     transition:
-        opacity var(--duracion-desvanecer) ease;
-
+        opacity
+        var(--duracion-desvanecer)
+        ease;
 }
+
 
 .florero-izquierdo{
-
-    left:2%;
-
-}
-
-.florero-derecho{
-
-    right:2%;
-
-}
-
-.florero-izquierdo{
-
     left:3%;
-
 }
+
 
 .florero-derecho{
-
     right:3%;
-
 }
 
+
+/* ==================================================
+   13. LETRERO XV
+================================================== */
 
 .letrero-xv{
-
     position:absolute;
 
     width:18%;
+    height:auto;
 
     left:6%;
-
     top:36%;
-
-    height:auto;
 
     object-fit:contain;
 
     pointer-events:none;
-
     user-select:none;
 
-    z-index:var(--z-letrero);
+    z-index:
+        var(--z-letrero);
 
     filter:
         drop-shadow(
-            0 5px 8px rgba(0,0,0,.13)
+            0 5px 8px
+            rgba(0,0,0,.13)
         );
-
 }
 
 
@@ -508,27 +558,25 @@ body{
 ================================================== */
 
 .farol{
-
     position:absolute;
 
     width:28%;
-
-    right:-8%;
-    top:25%;
-
     height:auto;
+
+    right:-5% !important;
+    top:25% !important;
 
     object-fit:contain;
 
     pointer-events:none;
-
     user-select:none;
 
-    z-index:var(--z-farol);
+    z-index:55 !important;
 
     filter:
         drop-shadow(
-            0 7px 10px rgba(0,0,0,.18)
+            0 7px 10px
+            rgba(0,0,0,.18)
         );
 
     animation:
@@ -536,8 +584,8 @@ body{
         3.2s
         ease-in-out
         infinite;
-
 }
+
 
 /* ==================================================
    15. BOTÓN DE ENTRADA
@@ -549,19 +597,26 @@ body{
     left:50%;
     bottom:28px;
 
-    width:min(390px, 80vw);
+    width:
+        min(
+            390px,
+            80vw
+        );
 
-    transform:translateX(-50%);
+    transform:
+        translateX(-50%);
 
     cursor:pointer;
     user-select:none;
 
-    z-index:var(--z-boton);
+    z-index:
+        var(--z-boton);
 
     transition:
         transform .25s ease,
         opacity .6s ease;
 }
+
 
 .boton-entrar:hover{
     transform:
@@ -569,21 +624,39 @@ body{
         scale(1.02);
 }
 
+
 .boton-entrar:active{
     transform:
         translateX(-50%)
         scale(.98);
 }
 
-.marco-boton{
-    display:block;
 
-    width:100%;
-    height:auto;
+/* Frame del botón */
+
+.marco-boton{
+    display:block !important;
+
+    width:105% !important;
+
+    max-width:none !important;
+
+    height:auto !important;
+
+    position:relative !important;
+
+    left:50% !important;
+
+    transform:
+        translateX(-50%)
+        !important;
+
+    margin:0 !important;
 
     pointer-events:none;
     user-select:none;
 }
+
 
 .contenido-boton{
     position:absolute;
@@ -594,24 +667,35 @@ body{
     width:90%;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     gap:10px;
 
-    transform:translate(-50%, -50%);
+    transform:
+        translate(-50%,-50%);
 
     pointer-events:none;
 }
 
-.texto-boton{
-  font-family:"Cinzel Decorative", serif;
 
-    font-size:clamp(15px,1.35vw,20px);
+.texto-boton{
+    font-family:
+        "Cinzel Decorative",
+        serif;
+
+    font-size:
+        clamp(
+            15px,
+            1.35vw,
+            20px
+        );
 
     font-weight:700;
 
-    color:var(--color-azul);
+    color:
+        var(--color-azul);
 
     letter-spacing:1px;
 
@@ -622,28 +706,35 @@ body{
     white-space:nowrap;
 }
 
+
 .rombo{
     position:relative;
 
     display:inline-flex;
+
     align-items:center;
     justify-content:center;
 
     width:12px;
     height:12px;
 
-    flex:0 0 12px;
+    flex:
+        0 0 12px;
 
-    color:var(--color-rosa);
+    color:
+        var(--color-rosa);
 
     font-size:0;
+
     line-height:1;
 }
+
 
 .rombo::before{
     content:"❖";
 
-    color:var(--color-rosa);
+    color:
+        var(--color-rosa);
 
     font-family:
         Arial,
@@ -651,15 +742,16 @@ body{
         sans-serif;
 
     font-size:20px;
+
     line-height:1;
 }
+
 
 /* ==================================================
    16. PÉTALOS
 ================================================== */
 
 .petalos{
-
     position:fixed;
 
     inset:0;
@@ -668,9 +760,13 @@ body{
 
     pointer-events:none;
 
-    z-index:var(--z-petalos);
+    z-index:
+        var(--z-petalos);
 
+    transition:
+        opacity .7s ease;
 }
+
 
 .petalos span{
     position:absolute;
@@ -680,93 +776,81 @@ body{
     width:18px;
     height:24px;
 
-    background-image:url("../assets/img/petalo.webp");
-    background-size:contain;
-    background-repeat:no-repeat;
-    background-position:center;
+    background-image:
+        url("../assets/img/petalo.webp");
+
+    background-size:
+        contain;
+
+    background-repeat:
+        no-repeat;
+
+    background-position:
+        center;
 
     opacity:.85;
 
     animation:
-        caerPetalo linear infinite;
+        caerPetalo
+        linear
+        infinite;
 
-    will-change:transform;
+    will-change:
+        transform;
 }
 
+
 .petalos span:nth-child(1){
-
     left:8%;
-
     animation-duration:11s;
     animation-delay:-2s;
-
 }
 
 .petalos span:nth-child(2){
-
     left:22%;
-
     animation-duration:13s;
     animation-delay:-6s;
-
 }
 
 .petalos span:nth-child(3){
-
     left:37%;
-
     animation-duration:12s;
     animation-delay:-9s;
-
 }
 
 .petalos span:nth-child(4){
-
     left:50%;
-
     animation-duration:11.5s;
     animation-delay:-7s;
-
 }
 
 .petalos span:nth-child(5){
-
     left:65%;
-
     animation-duration:11.5s;
     animation-delay:-7s;
-
 }
 
 .petalos span:nth-child(6){
-
     left:78%;
-
     animation-duration:13.5s;
     animation-delay:-3s;
-
 }
 
 .petalos span:nth-child(7){
-
     left:90%;
-
     animation-duration:12.5s;
     animation-delay:-8s;
-
 }
 
 .petalos span:nth-child(8){
-
     left:55%;
-
     animation-duration:15s;
     animation-delay:-5s;
-
 }
 
+
 /* ==================================================
-   17. ANIMACIONES
+   17. ANIMACIÓN FAROL
 ================================================== */
 
 @keyframes brilloFarol{
@@ -776,95 +860,128 @@ body{
 
         filter:
             drop-shadow(
-                0 7px 10px rgba(0,0,0,.18)
+                0 7px 10px
+                rgba(0,0,0,.18)
             )
-            drop-shadow(
-                0 0 3px rgba(255,205,105,.22)
-            );
 
+            drop-shadow(
+                0 0 3px
+                rgba(255,205,105,.22)
+            );
     }
+
 
     50%{
 
         filter:
             drop-shadow(
-                0 7px 10px rgba(0,0,0,.18)
+                0 7px 10px
+                rgba(0,0,0,.18)
             )
+
             drop-shadow(
-                0 0 10px rgba(255,205,105,.50)
+                0 0 10px
+                rgba(255,205,105,.50)
             );
-
     }
-
 }
 
+
+/* ==================================================
+   18. ANIMACIÓN PÉTALOS
+================================================== */
 
 @keyframes caerPetalo{
 
     0%{
         transform:
-            translate3d(0,-80px,0)
+            translate3d(
+                0,
+                -80px,
+                0
+            )
             rotate(0deg)
             scale(.75);
 
         opacity:0;
     }
 
+
     8%{
         opacity:.9;
     }
 
+
     25%{
         transform:
-            translate3d(-28px,25vh,0)
+            translate3d(
+                -28px,
+                25vh,
+                0
+            )
             rotate(100deg)
             scale(.9);
     }
 
+
     50%{
         transform:
-            translate3d(24px,52vh,0)
+            translate3d(
+                24px,
+                52vh,
+                0
+            )
             rotate(210deg)
             scale(.8);
     }
 
+
     75%{
         transform:
-            translate3d(-18px,80vh,0)
+            translate3d(
+                -18px,
+                80vh,
+                0
+            )
             rotate(310deg)
             scale(.95);
     }
 
+
     100%{
         transform:
-            translate3d(20px,115vh,0)
+            translate3d(
+                20px,
+                115vh,
+                0
+            )
             rotate(430deg)
             scale(.8);
 
         opacity:0;
     }
-
 }
 
-/* ==================================================
-   TRANSICIÓN HACIA LA INVITACIÓN
-================================================== */
 
-/* Evita nuevos clics durante la transición */
+/* ==================================================
+   19. TRANSICIÓN HACIA LA INVITACIÓN
+================================================== */
 
 .intro.en-transicion{
     cursor:default;
 }
 
-.intro.en-transicion .escena,
-.intro.en-transicion .boton-entrar{
+
+.intro.en-transicion
+.escena,
+
+.intro.en-transicion
+.boton-entrar{
     pointer-events:none;
 }
 
 
-/* --------------------------------------------------
-   TRANSICIONES DE LOS ELEMENTOS DECORATIVOS
--------------------------------------------------- */
+/* Transición elementos decorativos */
 
 .puerta,
 .marco-grada,
@@ -872,35 +989,33 @@ body{
 .florero,
 .farol,
 .letrero-xv{
+
     transition:
-        opacity var(--duracion-desvanecer) ease,
-        transform var(--duracion-puertas) var(--curva-suave),
+        opacity
+        var(--duracion-desvanecer)
+        ease,
+
+        transform
+        var(--duracion-puertas)
+        var(--curva-suave),
+
         filter .6s ease;
 }
 
-.petalos{
-    transition:opacity .7s ease;
-}
 
 /* ==================================================
-   EFECTO DE ENTRAR POR LA PUERTA
+   20. ENTRAR POR LA PUERTA
 ================================================== */
 
-/* Los pétalos desaparecen durante la entrada */
-
-body.transicion-activa .petalos{
+body.transicion-activa
+.petalos{
     opacity:0;
 }
 
-.petalos{
-    transition:opacity .8s ease;
-}
 
-/* ==================================================
-   EFECTO DE AVANZAR HACIA LA PUERTA
-================================================== */
+.intro.abriendo
+.boton-entrar{
 
-.intro.abriendo .boton-entrar{
     opacity:0;
 
     transform:
@@ -911,33 +1026,53 @@ body.transicion-activa .petalos{
     pointer-events:none;
 }
 
-.intro.abriendo .interior{
+
+.intro.abriendo
+.interior{
     opacity:1;
 }
 
-.intro.abriendo .paisaje-puerta{
-    transform:scale(1.04);
+
+.intro.abriendo
+.paisaje-puerta{
+    transform:
+        scale(1.04);
 }
 
 
-/* Movimiento de cámara */
+/* ==================================================
+   21. MOVIMIENTO DE CÁMARA
+================================================== */
 
-.intro.avanzando .camara{
+.intro.avanzando
+.camara{
+
     transform:
-        translate3d(0, 5vh, 0)
+        translate3d(
+            0,
+            5vh,
+            0
+        )
         scale(2.65);
 }
 
 
+/* Fondo desaparece */
 
-/* Las capas decorativas desaparecen casi al final */
+.intro.avanzando
+.fondo-pared{
 
-.intro.avanzando .fondo-pared{
     opacity:0;
 
     transition:
-        opacity .7s ease 2.1s;
+        opacity
+        .7s
+        ease
+        2.1s;
 }
+
+
+/* Elementos decorativos desaparecen */
 
 .intro.avanzando .puerta,
 .intro.avanzando .marco-grada,
@@ -945,118 +1080,108 @@ body.transicion-activa .petalos{
 .intro.avanzando .florero,
 .intro.avanzando .farol,
 .intro.avanzando .letrero-xv{
+
     opacity:0;
 
     transition:
-        opacity .65s ease 2.15s,
-        transform 2s ease,
-        filter .6s ease;
+        opacity
+        .65s
+        ease
+        2.15s,
+
+        transform
+        2s
+        ease,
+
+        filter
+        .6s
+        ease;
 }
 
 
-/* El paisaje queda visible mientras la cámara avanza */
+/* Paisaje dentro de puerta */
 
-.intro.avanzando .interior{
+.intro.avanzando
+.interior{
     opacity:1;
 }
 
-.intro.avanzando .paisaje-puerta{
-    transform:scale(.92);
+
+.intro.avanzando
+.paisaje-puerta{
+    transform:
+        scale(.92);
 }
 
-
-/* Pétalos fuera de la transición */
-
-body.transicion-activa .petalos{
-    opacity:0;
-}
-
-.petalos{
-    transition:opacity .7s ease;
-}
 
 /* ==================================================
-   PAISAJE FINAL A PANTALLA COMPLETA
+   22. PAISAJE FINAL
 ================================================== */
 
+.intro.paisaje-final
 .vista-previa-invitacion{
-    position:fixed;
-    inset:0;
 
-    width:100vw;
-    height:100vh;
-    height:100dvh;
+    opacity:1;
 
-    overflow:hidden;
+    transform:
+        scale(1);
+}
 
-    background:var(--color-crema);
+
+.intro.paisaje-final
+.boton-entrar{
 
     opacity:0;
 
-    transform:scale(1.12);
-
-    z-index:7;
-
-    pointer-events:none;
-
-    will-change:opacity;
-}
-
-.vista-previa-invitacion img{
-    display:block;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center 65%;
-    transform:scale(1);
-    user-select:none;
     pointer-events:none;
 }
+
+
+.intro.paisaje-final
+.camara{
+
+    opacity:0;
+
+    pointer-events:none;
+}
+
 
 /* ==================================================
-   ESTADO FINAL: DEJAR SANTORINI COMO FONDO
+   23. INVITACIÓN PRECARGADA
+   ==================================================
+   El iframe existe desde que carga index.html,
+   pero permanece completamente oculto.
 ================================================== */
-
-.intro.paisaje-final .vista-previa-invitacion{
-    opacity:1;
-    transform:scale(1);
-}
-
-.intro.paisaje-final .boton-entrar{
-    opacity:0;
-    pointer-events:none;
-}
-
-/* ==================================================
-   PAISAJE FINAL
-================================================== */
-
-.intro.paisaje-final .vista-previa-invitacion{
-    opacity:1;
-    transform:scale(1);
-}
-
-.intro.paisaje-final .camara{
-    opacity:0;
-    pointer-events:none;
-}
-
-/* ==========================================
-   INVITACIÓN ABIERTA SOBRE EL INDEX
-========================================== */
 
 .contenedor-invitacion-final{
+
     position:fixed;
+
     inset:0;
 
     width:100%;
+
     height:100vh;
     height:100dvh;
 
-    background:#f4e8dc;
+    background:
+        var(--color-crema);
+
+    /*
+       Precargada pero invisible.
+    */
 
     opacity:0;
+
     visibility:hidden;
+
+    /*
+       Muy importante:
+       mientras está oculta no bloquea
+       la puerta ni el botón.
+    */
+
+    pointer-events:none;
 
     z-index:10000;
 
@@ -1065,111 +1190,113 @@ body.transicion-activa .petalos{
         visibility 0s linear .9s;
 }
 
+
+/* ==================================================
+   24. MOSTRAR INVITACIÓN
+================================================== */
+
 .contenedor-invitacion-final.visible{
+
     opacity:1;
+
     visibility:visible;
+
+    pointer-events:auto;
 
     transition:
         opacity .9s ease;
 }
 
+
+/* ==================================================
+   25. IFRAME
+================================================== */
+
 .iframe-invitacion{
+
     display:block;
 
     width:100%;
+
     height:100%;
 
     border:0;
 
-    background:#f4e8dc;
+    background:
+        var(--color-crema);
 }
 
+
+/* Bloquear scroll del index */
+
 body.invitacion-abierta{
+
     overflow:hidden;
 }
 
-/* ==================================================
-   AGRANDAR FRAME DEL BOTÓN Y CENTRARLO
-================================================== */
-
-.marco-boton{
-    display:block !important;
-
-    width:105% !important;
-    max-width:none !important;
-    height:auto !important;
-
-    position:relative !important;
-    left:50% !important;
-
-    transform:translateX(-50%) !important;
-
-    margin:0 !important;
-}
-
-/* ==========================================================
-   iPHONE 14 — AJUSTE DE LA FRASE
-========================================================== */
-
-@media screen and (min-width: 389px) and (max-width: 391px) {
-
-    .frase-invitacion {
-        width: 82% !important;
-        max-width: 82% !important;
-
-        margin-left: auto !important;
-        margin-right: auto !important;
-
-        font-size: 20px !important;
-        line-height: 1.45 !important;
-
-        text-align: center !important;
-        left: auto !important;
-        right: auto !important;
-    }
-
-}
 
 /* ==================================================
-   FLORES SUPERIORES — TELÉFONO
+   26. AJUSTES TELÉFONO
 ================================================== */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width:768px){
 
     .flores-superiores{
-        width: 86% !important;  /* un poco más pequeñas */
-        top: 3% !important;     /* un poco más arriba */
-    }
 
-}
+        width:86% !important;
 
-.farol{
-    right: -5% !important;
-    top: 25% !important;
-    z-index: 55 !important;
-}
-
-/* ==========================================================
-   iPHONE 14 — AGRANDAR FRAME
-   "TOCA LA PUERTA PARA ENTRAR"
-========================================================== */
-
-@media screen and (min-width: 389px) and (max-width: 391px) {
-
-    .boton-entrar .marco-boton {
-        width: 112% !important;
-        max-width: none !important;
-
-        position: relative !important;
-        left: 50% !important;
-
-        transform: translateX(-50%) !important;
-
-        height: auto !important;
+        top:3% !important;
     }
 
 }
 
 
+/* ==================================================
+   27. iPHONE 14
+================================================== */
+
+@media screen
+and (min-width:389px)
+and (max-width:391px){
+
+    .frase-invitacion{
+
+        width:82% !important;
+
+        max-width:82% !important;
+
+        margin-left:auto !important;
+
+        margin-right:auto !important;
+
+        font-size:20px !important;
+
+        line-height:1.45 !important;
+
+        text-align:center !important;
+
+        left:auto !important;
+
+        right:auto !important;
+    }
 
 
+    .boton-entrar
+    .marco-boton{
+
+        width:112% !important;
+
+        max-width:none !important;
+
+        position:relative !important;
+
+        left:50% !important;
+
+        transform:
+            translateX(-50%)
+            !important;
+
+        height:auto !important;
+    }
+
+}
