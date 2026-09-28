@@ -16,9 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let iniciada = false;
 
-
     /* ==========================================
-       1. PRECARGAR LA INVITACIÓN
+       1. PREPARAR CONTENEDOR DE LA INVITACIÓN
        ========================================== */
 
     const contenedor = document.createElement("div");
@@ -26,19 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
     contenedor.className =
         "contenedor-invitacion-final";
 
-
     const iframe = document.createElement("iframe");
 
     iframe.className =
         "iframe-invitacion";
 
     /*
-       IMPORTANTE:
-       Ya no usamos Date.now().
-       Así el navegador puede aprovechar la caché.
+       Al principio NO cargamos invitacion.html.
+       Primero dejamos que cargue la portada.
     */
 
-    iframe.src = "invitacion.html";
+    iframe.src = "about:blank";
 
     iframe.title =
         "Invitación de XV años de Jimena";
@@ -48,23 +45,52 @@ document.addEventListener("DOMContentLoaded", () => {
         "autoplay"
     );
 
-
     contenedor.appendChild(iframe);
 
     document.body.appendChild(contenedor);
 
 
-    /*
-       Guardamos si la invitación
-       ya terminó de cargar.
-    */
+    /* ==========================================
+       2. PRECARGA RETRASADA
+       ========================================== */
 
+    let precargaIniciada = false;
     let invitacionCargada = false;
 
+    function precargarInvitacion() {
+
+        if (precargaIniciada) {
+            return;
+        }
+
+        precargaIniciada = true;
+
+        /*
+           URL estable para permitir que
+           el navegador utilice la caché.
+        */
+
+        iframe.src = "invitacion.html";
+    }
+
+
+    /*
+       Detectamos cuándo termina de cargar
+       realmente invitacion.html.
+    */
 
     iframe.addEventListener(
         "load",
         () => {
+
+            /*
+               Ignoramos la carga inicial
+               de about:blank.
+            */
+
+            if (!precargaIniciada) {
+                return;
+            }
 
             invitacionCargada = true;
 
@@ -72,14 +98,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 "invitacion-precargada"
             );
 
-        },
-        { once: true }
+        }
     );
 
 
+    /*
+       Esperamos a que la portada haya
+       terminado de cargar.
+
+       Después esperamos 1.5 segundos
+       antes de cargar la invitación.
+    */
+
+    window.addEventListener(
+        "load",
+        () => {
+
+            window.setTimeout(
+                precargarInvitacion,
+                1500
+            );
+
+        }
+    );
+
 
     /* ==========================================
-       2. REPRODUCIR MÚSICA
+       3. REPRODUCIR MÚSICA
        ========================================== */
 
     function reproducirMusica() {
@@ -89,7 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         musica.volume = 0.45;
-
 
         musica.play().catch((error) => {
 
@@ -103,9 +147,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
     /* ==========================================
-       3. MOSTRAR LA INVITACIÓN
+       4. MOSTRAR LA INVITACIÓN
        ========================================== */
 
     function mostrarInvitacion() {
@@ -117,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         /*
            Esta función hace visible
-           el iframe ya precargado.
+           el iframe suavemente.
         */
 
         const hacerVisible = () => {
@@ -138,10 +181,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /*
-           Si ya cargó, aparece inmediatamente.
+           Si ya cargó, la mostramos
+           inmediatamente.
 
-           Si todavía está terminando de cargar,
-           esperamos únicamente el evento load.
+           Si todavía está cargando,
+           esperamos al evento load.
         */
 
         if (invitacionCargada) {
@@ -160,9 +204,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /*
-           Agregar #invitacion a la dirección
-           para conservar el funcionamiento
-           del botón atrás.
+           Agregamos #invitacion a la URL
+           sin recargar la página.
         */
 
         if (
@@ -183,9 +226,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
     /* ==========================================
-       4. ABRIR LA PUERTA
+       5. ABRIR LA PUERTA
        ========================================== */
 
     function entrarPorLaPuerta() {
@@ -194,82 +236,78 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-
         iniciada = true;
 
 
         /*
-           Iniciar música
+           Si el visitante toca la puerta
+           antes de los 1.5 segundos,
+           comenzamos a cargar la invitación
+           inmediatamente.
+        */
+
+        precargarInvitacion();
+
+
+        /*
+           Iniciar música.
         */
 
         reproducirMusica();
 
 
         /*
-           Activar transición
+           Iniciar transición.
         */
 
         document.body.classList.add(
             "transicion-activa"
         );
 
-
-        /*
-           Abrir portada
-        */
-
         intro.classList.add(
             "abriendo"
         );
-
-
-        /*
-           Abrir puertas
-        */
 
         escena.classList.add(
             "abierta"
         );
 
 
+        /*
+           Movimiento de acercamiento.
+        */
 
-        /* ======================================
-           AVANCE HACIA LA PUERTA
-           ====================================== */
+        window.setTimeout(
+            () => {
 
-        window.setTimeout(() => {
+                intro.classList.add(
+                    "avanzando"
+                );
 
-            intro.classList.add(
-                "avanzando"
-            );
-
-        }, 900);
-
+            },
+            900
+        );
 
 
-        /* ======================================
-           MOSTRAR INVITACIÓN
+        /*
+           Conservamos los 2.35 segundos
+           de la animación original.
+        */
 
-           Conservamos tus 2.35 segundos
-           para no modificar la animación.
+        window.setTimeout(
+            () => {
 
-           La diferencia es que invitacion.html
-           YA SE ESTÁ CARGANDO desde que abrió
-           index.html.
-           ====================================== */
+                mostrarInvitacion();
 
-        window.setTimeout(() => {
-
-            mostrarInvitacion();
-
-        }, 2350);
+            },
+            2350
+        );
 
     }
 
 
-
     /* ==========================================
-       5. EVENTO CLICK DEL BOTÓN
+       6. EVENTOS DE LA PUERTA
        ========================================== */
 
     boton.addEventListener(
@@ -277,22 +315,16 @@ document.addEventListener("DOMContentLoaded", () => {
         entrarPorLaPuerta
     );
 
-
-
-    /* ==========================================
-       6. CLICK SOBRE LA PUERTA
-       ========================================== */
-
     escena.addEventListener(
         "click",
         entrarPorLaPuerta
     );
 
 
-
-    /* ==========================================
-       7. TECLADO
-       ========================================== */
+    /*
+       Permitir abrir también utilizando
+       Enter o barra espaciadora.
+    */
 
     boton.addEventListener(
         "keydown",
@@ -314,20 +346,13 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-
     /* ==========================================
-       8. BOTÓN ATRÁS DEL NAVEGADOR
+       7. BOTÓN ATRÁS DEL NAVEGADOR
        ========================================== */
 
     window.addEventListener(
         "popstate",
         () => {
-
-
-            /*
-               Si seguimos en #invitacion,
-               no hacemos nada.
-            */
 
             if (
                 window.location.hash ===
@@ -335,58 +360,52 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
 
                 return;
-
             }
 
 
             /*
-               Ocultar invitación
+               Ocultamos la invitación.
             */
 
             contenedor.classList.remove(
                 "visible"
             );
 
-
             document.body.classList.remove(
                 "invitacion-abierta"
             );
 
 
+            /*
+               Restauramos la portada,
+               pero NO eliminamos el iframe.
 
-            window.setTimeout(() => {
+               Así invitacion.html permanece
+               cargada y volver a entrar
+               será prácticamente inmediato.
+            */
 
+            window.setTimeout(
+                () => {
 
-                /*
-                   IMPORTANTE:
+                    iniciada = false;
 
-                   Ya NO eliminamos el iframe.
+                    intro.classList.remove(
+                        "abriendo",
+                        "avanzando"
+                    );
 
-                   Esto permite que si la persona
-                   vuelve a entrar, la invitación
-                   aparezca inmediatamente.
-                */
+                    escena.classList.remove(
+                        "abierta"
+                    );
 
-                iniciada = false;
+                    document.body.classList.remove(
+                        "transicion-activa"
+                    );
 
-
-                intro.classList.remove(
-                    "abriendo",
-                    "avanzando"
-                );
-
-
-                escena.classList.remove(
-                    "abierta"
-                );
-
-
-                document.body.classList.remove(
-                    "transicion-activa"
-                );
-
-
-            }, 900);
+                },
+                900
+            );
 
         }
     );
