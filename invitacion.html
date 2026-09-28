@@ -11,13 +11,24 @@
 
     <title>XV Años Jimena</title>
 
-    <!-- CSS -->
+
+    <!-- ==========================================
+         CSS
+    =========================================== -->
+
     <link
         rel="stylesheet"
         href="css/invitacion.css?v=1">
 
-    <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- ==========================================
+         GOOGLE FONTS
+         Una sola solicitud para mejorar la carga
+    =========================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
 
     <link
         rel="preconnect"
@@ -25,32 +36,7 @@
         crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap"
-        rel="stylesheet">
-
-    
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap"
-        rel="stylesheet">
-
-        <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap"
-        rel="stylesheet">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500&display=swap"
-        rel="stylesheet">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&display=swap"
-        rel="stylesheet">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Allura&display=swap"
-        rel="stylesheet">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Italianno&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Allura&family=Bodoni+Moda:opsz,wght@6..96,400&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:wght@500;600&family=Italianno&family=Montserrat:wght@300;400;500&family=Nunito:wght@300;400;500&display=swap"
         rel="stylesheet">
 
 </head>
@@ -71,12 +57,16 @@
 
     <!-- =====================================
          FONDO SANTORINI
+         Carga inmediata
     ====================================== -->
 
     <img
         src="assets/img/fondo-invitacion4.webp"
         class="fondo-santorini"
-        alt="Paisaje de Santorini">
+        alt="Paisaje de Santorini"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high">
 
 
     <!-- VELO DEL FONDO -->
@@ -96,22 +86,30 @@
 
         <!-- =====================================
              PARED
+             Carga inmediata
         ====================================== -->
 
         <img
             src="assets/img/pared_invitacion4_web.webp"
             class="pared-invitacion"
-            alt="">
+            alt=""
+            loading="eager"
+            decoding="async"
+            fetchpriority="high">
 
 
         <!-- =====================================
              MARCO
+             Carga inmediata
         ====================================== -->
 
         <img
             src="assets/img/marco_puerta13.webp"
             class="marco-invitacion"
-            alt="">
+            alt=""
+            loading="eager"
+            decoding="async"
+            fetchpriority="high">
 
 
         <!-- =====================================
@@ -122,6 +120,8 @@
             src="assets/img/focos.webp"
             class="focos-superiores"
             alt=""
+            loading="eager"
+            decoding="async"
             aria-hidden="true">
 
 
@@ -132,7 +132,9 @@
         <img
             src="assets/img/flores_bola.webp"
             class="flores-bola-disco"
-            alt="">
+            alt=""
+            loading="eager"
+            decoding="async">
 
 
         <!-- =====================================
@@ -146,9 +148,7 @@
             <div class="cadena-disco"></div>
 
 
-            <!-- =====================================
-                 BOLA DISCO — COMPUTADORA
-            ====================================== -->
+            <!-- BOLA DISCO — COMPUTADORA -->
 
             <video
                 class="bola-disco bola-disco-web"
@@ -165,9 +165,7 @@
             </video>
 
 
-            <!-- =====================================
-                 BOLA DISCO — TELÉFONO
-            ====================================== -->
+            <!-- BOLA DISCO — TELÉFONO -->
 
             <img
                 src="assets/img/bola_disco_movil2.webp"
@@ -175,7 +173,7 @@
                 alt=""
                 width="600"
                 height="586"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
                 draggable="false"
                 aria-hidden="true">
@@ -205,7 +203,9 @@
             <img
                 src="assets/img/flores_marco_izquierdas2_web.webp"
                 class="flores-superiores-izquierda"
-                alt="">
+                alt=""
+                loading="eager"
+                decoding="async">
 
 
             <!-- FLORES DERECHAS -->
@@ -213,7 +213,9 @@
             <img
                 src="assets/img/flores_marco_izquierdas2_web.webp"
                 class="flores-superiores-derecha"
-                alt="">
+                alt=""
+                loading="eager"
+                decoding="async">
 
 
             <!-- =====================================
@@ -247,7 +249,9 @@
 
                         <img
                             src="assets/img/mamma_mia2.webp"
-                            alt="Mamma Mia">
+                            alt="Mamma Mia"
+                            loading="eager"
+                            decoding="async">
 
                     </div>
 
@@ -266,85 +270,118 @@
                     <img
                         src="assets/img/Ornamento12.webp"
                         class="ornamento-misxv"
-                        alt="">
+                        alt=""
+                        loading="eager"
+                        decoding="async">
 
 
-                    <!-- =====================================================
-                         NOMBRE JIMENA + ESTRELLAS + DESTELLOS
-                    ===================================================== -->
+                    <!-- =================================
+                         NOMBRE JIMENA
+                    ================================== -->
 
                     <div
                         class="nombre-jimena-contenedor"
                         aria-label="Jimena">
 
 
-                        <!-- NOMBRE -->
-
                         <img
                             src="assets/img/Nombre.webp"
                             class="nombre-jimena-imagen"
-                            alt="Jimena">
+                            alt="Jimena"
+                            loading="eager"
+                            decoding="async">
 
 
-                        <!-- ESTRELLAS PLATEADAS -->
+                        <!-- ESTRELLAS -->
 
                         <img
                             src="assets/img/estrella2.webp"
                             class="estrella-jimena estrella-1"
                             alt=""
+                            decoding="async"
                             aria-hidden="true">
 
                         <img
                             src="assets/img/estrella2.webp"
                             class="estrella-jimena estrella-2"
                             alt=""
+                            decoding="async"
                             aria-hidden="true">
 
                         <img
                             src="assets/img/estrella2.webp"
                             class="estrella-jimena estrella-3"
                             alt=""
+                            decoding="async"
                             aria-hidden="true">
 
                         <img
                             src="assets/img/estrella2.webp"
                             class="estrella-jimena estrella-4"
                             alt=""
+                            decoding="async"
                             aria-hidden="true">
 
                         <img
                             src="assets/img/estrella2.webp"
                             class="estrella-jimena estrella-5"
                             alt=""
+                            decoding="async"
                             aria-hidden="true">
 
                         <img
                             src="assets/img/estrella2.webp"
                             class="estrella-jimena estrella-6"
                             alt=""
+                            decoding="async"
                             aria-hidden="true">
 
                         <img
                             src="assets/img/estrella2.webp"
                             class="estrella-jimena estrella-7"
                             alt=""
+                            decoding="async"
                             aria-hidden="true">
 
                         <img
                             src="assets/img/estrella2.webp"
                             class="estrella-jimena estrella-8"
                             alt=""
+                            decoding="async"
                             aria-hidden="true">
 
 
-                        <!-- DESTELLOS BLANCOS -->
+                        <!-- DESTELLOS -->
 
-                        <span class="chispa-jimena chispa-1" aria-hidden="true"></span>
-                        <span class="chispa-jimena chispa-2" aria-hidden="true"></span>
-                        <span class="chispa-jimena chispa-3" aria-hidden="true"></span>
-                        <span class="chispa-jimena chispa-4" aria-hidden="true"></span>
-                        <span class="chispa-jimena chispa-5" aria-hidden="true"></span>
-                        <span class="chispa-jimena chispa-6" aria-hidden="true"></span>
+                        <span
+                            class="chispa-jimena chispa-1"
+                            aria-hidden="true">
+                        </span>
+
+                        <span
+                            class="chispa-jimena chispa-2"
+                            aria-hidden="true">
+                        </span>
+
+                        <span
+                            class="chispa-jimena chispa-3"
+                            aria-hidden="true">
+                        </span>
+
+                        <span
+                            class="chispa-jimena chispa-4"
+                            aria-hidden="true">
+                        </span>
+
+                        <span
+                            class="chispa-jimena chispa-5"
+                            aria-hidden="true">
+                        </span>
+
+                        <span
+                            class="chispa-jimena chispa-6"
+                            aria-hidden="true">
+                        </span>
 
                     </div>
 
@@ -391,7 +428,9 @@
                         <img
                             src="assets/img/marco_cuenta.webp"
                             class="marco-cuenta"
-                            alt="">
+                            alt=""
+                            loading="eager"
+                            decoding="async">
 
                         <div class="contenido-cuenta">
 
@@ -400,6 +439,7 @@
                             </p>
 
                             <div class="contador">
+
 
                                 <div class="unidad-contador">
 
@@ -464,14 +504,13 @@
 
                         </div>
 
-                        
-
                     </section>
 
 
-                    <!-- =====================================================
+                    <!-- =================================
                          MISA + RECEPCIÓN
-                    ===================================================== -->
+                         Desde aquí usamos lazy loading
+                    ================================== -->
 
                     <section class="eventos-xv">
 
@@ -485,7 +524,8 @@
                                 <img
                                     src="assets/img/iglesia_2.webp"
                                     alt="Parroquia Nuestra Señora de Guadalupe"
-                                    loading="lazy">
+                                    loading="lazy"
+                                    decoding="async">
 
                             </div>
 
@@ -509,7 +549,8 @@
                                     src="assets/img/Ornamento5.webp"
                                     class="evento-ornamento"
                                     alt=""
-                                    loading="lazy">
+                                    loading="lazy"
+                                    decoding="async">
 
 
                                 <h3 class="evento-lugar">
@@ -539,7 +580,9 @@
                                     <img
                                         src="assets/img/bot_ubicacion_.webp"
                                         class="imagen-boton-ubicacion"
-                                        alt="Ver ubicación">
+                                        alt="Ver ubicación"
+                                        loading="lazy"
+                                        decoding="async">
 
                                 </a>
 
@@ -556,7 +599,9 @@
 
                                 <img
                                     src="assets/img/recepcion.webp"
-                                    alt="Recepción">
+                                    alt="Recepción"
+                                    loading="lazy"
+                                    decoding="async">
 
                             </div>
 
@@ -571,7 +616,9 @@
                                 <img
                                     src="assets/img/ornamento_corazon.webp"
                                     class="evento-ornamento"
-                                    alt="">
+                                    alt=""
+                                    loading="lazy"
+                                    decoding="async">
 
 
                                 <h3 class="evento-lugar">
@@ -601,7 +648,9 @@
                                     <img
                                         src="assets/img/bot_ubicacion_.webp"
                                         class="imagen-boton-ubicacion"
-                                        alt="Ver ubicación">
+                                        alt="Ver ubicación"
+                                        loading="lazy"
+                                        decoding="async">
 
                                 </a>
 
@@ -610,8 +659,6 @@
                         </div>
 
                     </section>
-
-
                     <!-- =====================================================
                          DRESS CODE
                     ===================================================== -->
@@ -628,7 +675,8 @@
                                 <img
                                     src="assets/img/vestido4.webp"
                                     alt="Vestido formal"
-                                    loading="lazy">
+                                    loading="lazy"
+                                    decoding="async">
 
                             </div>
 
@@ -641,7 +689,8 @@
                                     src="assets/img/bola_save.webp"
                                     alt=""
                                     class="dress-bola-central"
-                                    loading="lazy">
+                                    loading="lazy"
+                                    decoding="async">
 
                                 <h2 class="dress-titulo">
                                     DRESS CODE
@@ -666,8 +715,8 @@
                                 <img
                                     src="assets/img/traje4.webp"
                                     alt="Traje formal"
-                                    loading="lazy">
-
+                                    loading="lazy"
+                                    decoding="async">
 
                             </div>
 
@@ -681,7 +730,8 @@
                             <img
                                 src="assets/img/Reservado2.webp"
                                 alt="Color celeste reservado"
-                                loading="lazy">
+                                loading="lazy"
+                                decoding="async">
 
                         </div>
 
@@ -702,7 +752,8 @@
                             <img
                                 src="assets/img/Ornamento11.webp"
                                 alt=""
-                                loading="lazy">
+                                loading="lazy"
+                                decoding="async">
 
                         </div>
 
@@ -734,6 +785,8 @@
                                     src="assets/img/sobre.webp"
                                     class="sobre-regalo"
                                     alt=""
+                                    loading="lazy"
+                                    decoding="async"
                                     aria-hidden="true">
 
 
@@ -745,6 +798,8 @@
                                         src="assets/img/ornamento8.webp"
                                         class="ornamento-cuenta-banco ornamento-cuenta-superior"
                                         alt=""
+                                        loading="lazy"
+                                        decoding="async"
                                         aria-hidden="true">
 
                                     <p class="banco">
@@ -768,6 +823,8 @@
                                         src="assets/img/ornamento8.webp"
                                         class="ornamento-cuenta-banco ornamento-cuenta-inferior"
                                         alt=""
+                                        loading="lazy"
+                                        decoding="async"
                                         aria-hidden="true">
 
                                 </div>
@@ -776,15 +833,19 @@
 
 
                             <!-- =================================
-                                 SEPARADOR FLORAL ENTRE REGALO Y CONFIRMACIÓN
+                                 SEPARADOR FLORAL
                             ================================== -->
 
-                            <div class="separador-confirmacion-contenedor" aria-hidden="true">
+                            <div
+                                class="separador-confirmacion-contenedor"
+                                aria-hidden="true">
 
                                 <img
                                     src="assets/img/ornamento13.webp"
                                     class="separador-confirmacion"
-                                    alt="">
+                                    alt=""
+                                    loading="lazy"
+                                    decoding="async">
 
                             </div>
 
@@ -817,7 +878,9 @@
                                     <img
                                         src="assets/img/bot_confirmacion.webp"
                                         class="imagen-boton-confirmacion"
-                                        alt="Confirmar asistencia">
+                                        alt="Confirmar asistencia"
+                                        loading="lazy"
+                                        decoding="async">
 
                                 </a>
 
@@ -827,7 +890,9 @@
                                 <img
                                     src="assets/img/ornamento10.webp"
                                     alt="Ornamento Santorini"
-                                    class="ornamento-confirmacion">
+                                    class="ornamento-confirmacion"
+                                    loading="lazy"
+                                    decoding="async">
 
                             </div>
 
@@ -843,7 +908,9 @@
                                 <img
                                     src="assets/img/ornamento9.webp"
                                     class="separador-regalo-imagen"
-                                    alt="">
+                                    alt=""
+                                    loading="lazy"
+                                    decoding="async">
 
                             </div>
 
@@ -856,6 +923,8 @@
                             src="assets/img/florero5.webp"
                             class="florero-inferior-izquierdo"
                             alt=""
+                            loading="lazy"
+                            decoding="async"
                             aria-hidden="true">
 
 
@@ -865,6 +934,8 @@
                             src="assets/img/florero3.webp"
                             class="florero-inferior-derecho"
                             alt=""
+                            loading="lazy"
+                            decoding="async"
                             aria-hidden="true">
 
                     </section>
@@ -884,6 +955,8 @@
             src="assets/img/petalos.webp"
             class="petalos-inferiores"
             alt=""
+            loading="lazy"
+            decoding="async"
             aria-hidden="true">
 
     </main>
@@ -915,4 +988,5 @@
 
 
 </body>
+
 </html>
